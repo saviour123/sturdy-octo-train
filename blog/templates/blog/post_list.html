@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> {% load static %}
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <title>Django Girls Blog</title>
 </head>
 
-<body>
+<body style="font-family: 'Maven Pro', sans-serif;">
     <div>
         <h1>
             <a href=""></a>Saviour for Django Girls Blog</h1>
@@ -21,7 +22,7 @@
     <div>
         <p>published: {{ post.published_date }}</p>
         <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaker }}</p>
+        <p>{{ post.text|linebreaksbr }}</p>
     </div>
     {% endfor %}
 </body>
