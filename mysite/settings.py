@@ -25,7 +25,7 @@ SECRET_KEY = 'n*4-n%v_rf#ujnq(&3q$kf^rph7hrvku^&_d!5g%6sptiby*x&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saviour123.pythonanywhere.com', '127.0.O.1', 'localhost', '0.0.0.0', '.pythonanywhere.com',]
+ALLOWED_HOSTS = ['http://127.0.0.1', 'saviour123.pythonanywhere.com', '127.0.O.1', 'localhost', '0.0.0.0', '.pythonanywhere.com', ]
 
 
 # Application definition
