@@ -1,11 +1,11 @@
 body {
-    font-family: 'Maven Pro', sans-serif, !important;
+    font-family: 'Maven Pro', cursive;
     background: #f3e9ff;
     padding: 1.5em;
 }
 
 .page-header {
-    background-color: #ff9400;
+    background-color: #0400ff42;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -15,7 +15,7 @@ body {
 .page-header h1 a:visited,
 .page-header h1 a:active {
     color: #ffffff;
-    font-size: 36pt;
+    font-size: 20pt;
     text-decoration: none;
 }
 
@@ -48,8 +48,8 @@ h4 {
 .top-menu:visited {
     color: #ffffff;
     float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    font-size: 11pt;
+    margin-right: 23px;
 }
 
 .post {
@@ -59,4 +59,12 @@ h4 {
 .post h1 a,
 .post h1 a:visited {
     color: #000000;
+}
+
+.nav-right {
+
+}
+
+.nav-left {
+    
 }
