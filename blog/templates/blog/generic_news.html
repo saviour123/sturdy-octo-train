@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for article in data %}
+    <div class="post">
+      <div class="date">
+        {% for news in article.articles %}
+          <img id="img_news_item" src="{{ news.urlToImage }}">
+          <h5>Title: {{ news.title }} * Author:<a href={{ news.url }}>{{ article.source }}</a> * Published At: {{ publishedAt }}</h5>
+          <p>{{ news.description|linebreaksbr }}. <a href="{{ news.url }}">Read More</a></p>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

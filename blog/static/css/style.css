@@ -68,3 +68,8 @@ h4 {
 .nav-left {
     
 }
+
+#img_news_item {
+    width: 30%;
+    height: 30%;
+}

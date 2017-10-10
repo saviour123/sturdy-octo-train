@@ -1,3 +1,5 @@
+import requests
+import os
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
@@ -43,3 +45,16 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def generic_news(request):
+    sources = ['bbc-sport', 'the-sport-bible', 'espn', 'talksport', 'four-four-two']
+    key = os.environ['newskey']
+    data = list()
+    for source in sources:
+        url = 'https://newsapi.org/v1/articles?source=' + source + \
+            '&sortBy=top&apiKey=' + key
+        req = requests.get(url)
+        response_news_articles = req.json()
+        data.append(response_news_articles)
+    return render(request, 'blog/generic_news.html', {'data': data})
