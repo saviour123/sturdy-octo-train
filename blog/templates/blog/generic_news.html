@@ -4,10 +4,14 @@
     {% for article in data %}
     <div class="post">
       <div class="date">
-        {% for news in article.articles %}
-          <img id="img_news_item" src="{{ news.urlToImage }}">
-          <h5>Title: {{ news.title }} * Author:<a href={{ news.url }}>{{ article.source }}</a> * Published At: {{ publishedAt }}</h5>
-          <p>{{ news.description|linebreaksbr }}. <a href="{{ news.url }}">Read More</a></p>
+        {% for news in article.articles|dictsort:"publishedAt" %}
+          <div class="imgtag">
+            <img id="img_news_item" src="{{ news.urlToImage }}">
+          </div>
+          <div>
+            <h5>Title: {{ news.title }} * Author:<a href={{ news.url }}>{{ article.source }}</a> * Published At: {{ news.publishedAt|default_if_none:"Unknown" }}</h5>
+            <p>{{ news.description|linebreaksbr }}. <a href="{{ news.url }}">Read More</a></p>
+          </div>
         {% endfor %}
       </div>
     </div>
