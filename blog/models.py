@@ -18,3 +18,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class News(models.Model):
+    """ class for news store, its suppose to
+    """
+    pass

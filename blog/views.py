@@ -1,6 +1,7 @@
 import requests
 import os
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.decorators.cache import cache_page
 from .models import Post
 from .forms import PostForm
 from django.utils import timezone
@@ -47,6 +48,7 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
+@cache_page(60 * 15)
 def generic_news(request):
     sources = ['bbc-sport', 'the-sport-bible', 'espn', 'talksport', 'four-four-two']
     key = os.environ['newskey']
