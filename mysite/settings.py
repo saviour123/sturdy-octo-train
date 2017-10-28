@@ -74,20 +74,12 @@ DATABASES = {
 
 CACHES = {
     'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': 'localhost:6379',
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://0.0.0.0:6379/1',
         'OPTIONS': {
-            'DB': 1,
-            'PASSWORD': 'sav',
-            'PARSER_CLASS': 'redis.connection.HiredisParser',
-            'CONNECTION_POOL_CLASS': 'redis.BlockingConnectionPool',
-            'CONNECTION_POOL_CLASS_KWARGS': {
-                'max_connections': 50,
-                'timeout': 20,
-            },
-            'MAX_CONNECTIONS': 1000,
-            'PICKLE_VERSION': -1,
-        }
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+        'KEY_PREFIX': 'generic news'
     },
 }
 
