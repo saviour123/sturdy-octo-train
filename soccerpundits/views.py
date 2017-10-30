@@ -1,7 +1,5 @@
 import requests
 import os
-from django.conf import settings
-from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.cache import cache_page
 from .models import Post
@@ -15,13 +13,13 @@ CACHE_TTL = 60 * 15
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     context = {"posts": posts}
-    return render(request, 'blog/post_list.html', context)
+    return render(request, 'soccerpundits/post_list.html', context)
 
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     context = {'post': post}
-    return render(request, 'blog/post_detail.html', context)
+    return render(request, 'soccerpundits/post_detail.html', context)
 
 
 def post_new(request):
@@ -35,7 +33,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'soccerpundits/post_edit.html', {'form': form})
 
 
 def post_edit(request, pk):
@@ -50,7 +48,7 @@ def post_edit(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'soccerpundits/post_edit.html', {'form': form})
 
 
 @cache_page(CACHE_TTL)
@@ -64,4 +62,4 @@ def generic_news(request):
         req = requests.get(url)
         response_news_articles = req.json()
         data.append(response_news_articles)
-    return render(request, 'blog/generic_news.html', {'data': data})
+    return render(request, 'soccerpundits/generic_news.html', {'data': data})

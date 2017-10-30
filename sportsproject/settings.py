@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'soccerpundits'
 ]
 
 MIDDLEWARE = [
@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'sportsproject.urls'
 
 TEMPLATES = [
     {
@@ -58,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'sportsproject.wsgi.application'
 
 
 # Database
@@ -75,11 +75,11 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://0.0.0.0:6379/1',
+        'LOCATION': 'redis://0.0.0.0:6379/0',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         },
-        'KEY_PREFIX': 'generic news'
+        'KEY_PREFIX': 'sports_news'
     },
 }
 
